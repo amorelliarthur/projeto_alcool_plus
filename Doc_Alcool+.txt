@@ -1,0 +1,116 @@
+
+Usuário {
+	- email
+	- senha (MD5)
+	- nível (acesso)
+}
+
+Usuários são determinados por níveis de acesso.
+
+--------------------------------------------------------------------------------
+
+PF: nível 1 {
+	- Nome
+	- Sobrenome
+	- cpf
+	- cidade
+	- grupo de risco{
+		hipertenso
+		asma
+		diabet
+		fuma
+	}
+	- prioridade de compra
+	- ultima_compra (1 pedido a cada 15 dias)
+}
+
+quantidade de produto >= 5 => qualquer PF pode comprar
+quandidade de produto == 4 => qualquer PF prioridade >= 1 
+quandidade de produto == 3 => qualquer PF prioridade >= 2
+quandidade de produto == 2 => qualquer PF prioridade >= 3
+quandidade de produto == 1 => qualquer PF prioridade == 4   
+
+Obs.: quantidade do produto = 1 e o usuário pedir 2, será registrado apenas 1.
+
+Ações:
+	Cadastro de pedido
+	
+--------------------------------------------------------------------------------
+
+PJ: nível 2 {
+	- Nome_proprietario
+	- Sobrenome_proprietario
+	- Nome_Estabelecimento
+	- cnpj
+	- cidade
+}
+
+Ações:
+	Cadastro de produto 
+	Exclusão de produto
+	Edição de produto
+	Cancelamento de pedido
+	Listagem dos pedidos
+	
+Obs.: Após o cancelamento de pedido, o produto volta para o banco.
+
+--------------------------------------------------------------------------------
+
+ADM: nível 3 {
+	- email
+	- senha
+}
+
+Ações:
+	Cadastro usuário (PF/PJ)
+	Listagem dos usuários (PF/PJ)
+	Listagem/exclusão de todos Produtos
+	Listagem/cancelamento de todos os pedidos
+	
+--------------------------------------------------------------------------------
+
+Produto{
+	- Nome
+	- valor
+	- quantidade
+	- imagem
+	- descrição
+}
+
+Pedido PF{
+	- Quantidade
+	- Valor
+	- Data
+}
+
+--------------------------------------------------------------------------------
+
+ -- Users --
+ 
+adm - adm@alcool.br - Adm@2022
+
+ -- pf --
+João - 1 - joao@alcool.br - Joao@2022
+Maria - 2 - maria@alcool.br - Maria@2022
+José - 0 - jose@alcool.br - Jose@2022
+Carla - 3 - carla@alcool.br - Carla@2022
+Vitor - 4 - vitor@alcool.br - Vitor@2022
+Lara - 0 - lara@alcool.br - Lara@2022
+Rosi - 0 - rosi@alcool.br - Rosi@2022
+
+ -- pj --
+
+jack@alcool.br - Jack!2022 - Sta rita
+bruna@alcool.br - Bruna!2022 - Sta rita
+carlos@alcool.br - Carlos!2022 - Sta rita
+fernando@alcool.br - Fernando!2022 - itajuba
+felipe@alcool.br - Felipe!2022 - itajuba
+mariane@alcool.br - Mariane!2022  - itajuba
+ana@alcool.br - Ana!2022 - Pouso Alegre
+solange@alcool.br - Solange!2022 - Pouso Alegre
+lucas@alcool.br - Lucas!2022 - Pouso Alegre
+pio@alcool.br - Pio!2022 - Pouso Alegre
+douglas@alcool.br - Douglas!2022 - Santa Rita
+
+
+
